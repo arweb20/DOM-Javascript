@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script>
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+    document.body.innerHTML ="<span style='color:red;'>Fine</span>"+ printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+</script>
+</head>
+
+<body>
+<div id="con">
+<div id="printableArea">
+    <h1>Print me</h1>
+	</div>
+	fgt
+</div>
+<input type="button" onclick="printDiv('printableArea')" value="print a div!" />
+</body>
+</html>

@@ -1,0 +1,31 @@
+    <script type = "text/javascript">
+         function change_status() {
+           
+               
+            // Creating a XHR object
+            var xhr = new XMLHttpRequest();
+            var url = "<?php echo site_url();?>/api/create";
+        
+            // open a connection
+            xhr.open("POST", url, true);
+  
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+  
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                   var data = JSON.parse(xhr.responseText);
+                   alert(data.message);
+  
+                }
+            };
+  
+            // Converting JSON data to string
+            var data = JSON.stringify([{ subscriber_email: "ff" }]);
+  
+            // Sending data with the request
+            xhr.send(data);
+        }
+		
+      </script>

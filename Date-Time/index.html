@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script>
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+	h = check(h);
+    m = check(m);
+    s = check(s);
+	var dd=today.getDate();
+	var mm=today.getMonth()+1;
+	var yyyy=today.getFullYear();
+	mm=check(mm);
+	dd=check(dd);
+	
+	var suffix="AM";
+	if(h>=12)
+	{
+		 suffix="PM";
+		 h=h-12;
+	}
+	if(h==0)
+	{
+		h=12;
+	}
+	document.getElementById('time').innerHTML = h+":"+m+":"+s+" "+suffix;
+    document.getElementById('date').innerHTML  = dd+" / "+mm+" / "+yyyy;
+	var t = setTimeout(function(){startTime()},500);
+}
+function check(i) 
+{
+    if (i<10) 
+	{
+	i = "0" + i;
+	}  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+<p id="date"></p>
+<p id="time"></p>
+</body>
+</html>
